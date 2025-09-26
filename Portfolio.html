@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piyush Bhajikhaye | Data Analytics Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #9b59b6;
+      --light: #f7f9fc;
+      --dark: #2d3436;
+      --gray: #6c757d;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9fa"/><path d="M0,0 L100,100" stroke="%23e9ecef" stroke-width="1"/><path d="M100,0 L0,100" stroke="%23e9ecef" stroke-width="1"/></svg>');
+      background-size: cover;
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--accent);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 48, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><circle cx="50" cy="50" r="40" fill="%233498db" opacity="0.2"/><circle cx="20" cy="20" r="15" fill="%239b59b6" opacity="0.2"/><circle cx="80" cy="80" r="15" fill="%233498db" opacity="0.2"/></svg>');
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%231a2530" fill-opacity="0.2" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .skill-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .header-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .header-links a {
+      color: white;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .header-links a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: white;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: center;
+    }
+    
+    nav a {
+      color: var(--dark);
+      padding: 1rem 1.5rem;
+      display: inline-block;
+      font-weight: 500;
+      position: relative;
+    }
+    
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--secondary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    nav a:hover::after,
+    nav a.active::after {
+      width: 80%;
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 5rem 0;
+    }
+    
+    section:nth-child(even) {
+      background-color: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+    
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+    }
+    
+    .about-image {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      height: 300px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-image::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><path d="M0,50 L100,50" stroke="%233498db" stroke-width="2"/><path d="M50,0 L50,100" stroke="%233498db" stroke-width="2"/><circle cx="50" cy="50" r="40" fill="%239b59b6" opacity="0.2"/></svg>');
+      opacity: 0.2;
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    
+    .project-image {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-image::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+    }
+    
+    .tata-project {
+      background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+    }
+    
+    .deloitte-project {
+      background: linear-gradient(45deg, #4ECDC4, #556270);
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-content h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .project-details {
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-details li {
+      margin-bottom: 0.5rem;
+      list-style-type: none;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .project-details li strong {
+      min-width: 130px;
+      display: inline-block;
+      color: var(--primary);
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--light);
+      border-radius: 5px;
+      font-weight: 500;
+    }
+    
+    .project-links a:hover {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    /* Experience Section */
+    .experience-item {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .experience-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 5px;
+      background: linear-gradient(to bottom, var(--secondary), var(--accent));
+    }
+    
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    
+    .experience-title {
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+    
+    .experience-date {
+      color: var(--gray);
+      font-weight: 500;
+    }
+    
+    .experience-company {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .experience-description {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    
+    .experience-highlights {
+      padding-left: 1.5rem;
+    }
+    
+    .experience-highlights li {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+    
+    .experience-highlights li::before {
+      content: "•";
+      color: var(--secondary);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--secondary);
+    }
+    
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      font-size: 1.2rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .about-content,
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .skills {
+        gap: 0.5rem;
+      }
+      
+      .skill-badge {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+      }
+      
+      .header-links {
+        flex-wrap: wrap;
+      }
+      
+      .nav-container {
+        flex-wrap: wrap;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .experience-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container header-content">
+      <h1>Piyush Bhajikhaye</h1>
+      <p class="tagline">Data Analyst | Transforming Data into Actionable Insights</p>
+      <div class="skills">
+        <div class="skill-badge">Python</div>
+        <div class="skill-badge">SQL</div>
+        <div class="skill-badge">Tableau</div>
+        <div class="skill-badge">R</div>
+        <div class="skill-badge">Power BI</div>
+        <div class="skill-badge">Excel</div>
+        <div class="skill-badge">Machine Learning</div>
+        <div class="skill-badge">Data Visualization</div>
+      </div>
+      <div class="header-links">
+        <a href="mailto:piyushbhajikhaye3@gmail.com">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="tel:7385655477">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://linkedin.com/in/piyushbhajikhaye" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/piyushbhajikhaye" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#about" class="active">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I am a passionate data analyst with expertise in transforming complex datasets into meaningful insights that drive business decisions. With a strong foundation in statistical analysis and data visualization, I specialize in identifying trends, patterns, and correlations that might otherwise go unnoticed.</p>
+          <p>My technical skills include Python (Pandas, NumPy, Scikit-learn), SQL, Tableau, and R. I have experience working with various industries including e-commerce, healthcare, and finance.</p>
+          <p>When I'm not crunching numbers, I enjoy contributing to open-source data projects, writing about data visualization techniques, and exploring new machine learning applications.</p>
+        </div>
+        <div class="about-image">
+          Data Analytics Professional
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Data Analytics Projects</h2>
+      <div class="projects-grid">
+        
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image tata-project">Tata GenAI Project</div>
+          <div class="project-content">
+            <h3>GenAI Powered Data Analytics</h3>
+            <ul class="project-details">
+              <li><strong>Objective:</strong> AI-powered data analytics and strategy development for Financial Services</li>
+              <li><strong>Tools:</strong> GenAI, Python, Predictive Modeling</li>
+              <li><strong>Data Source:</strong> Tata iQ Financial Services Data</li>
+              <li><strong>Key Insights:</strong> Identified risk indicators and proposed predictive modeling framework</li>
+            </ul>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> View Project</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image deloitte-project">Deloitte Project</div>
+          <div class="project-content">
+            <h3>Data Analytics & Forensic Technology</h3>
+            <ul class="project-details">
+              <li><strong>Objective:</strong> Data analysis and forensic technology investigation</li>
+              <li><strong>Tools:</strong> Tableau, Excel, Data Visualization</li>
+              <li><strong>Data Source:</strong> Deloitte Australia Dataset</li>
+              <li><strong>Key Insights:</strong> Created data dashboard and drew business conclusions</li>
+            </ul>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> View Dashboard</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image" style="background: linear-gradient(45deg, #5c7cfa, #3b5bdb);">E-commerce Analysis</div>
+          <div class="project-content">
+            <h3>E-commerce Sales Performance Dashboard</h3>
+            <ul class="project-details">
+              <li><strong>Objective:</strong> Analyze sales trends and customer behavior to increase revenue</li>
+              <li><strong>Tools:</strong> Python, SQL, Tableau</li>
+              <li><strong>Data Source:</strong> Global Superstore Dataset</li>
+              <li><strong>Key Insights:</strong> Identified 25% revenue growth opportunity</li>
+            </ul>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="experience-title">Data Analytics Specialist</div>
+          <div class="experience-date">2023 - 2025</div>
+        </div>
+        <div class="experience-company">
+          <i class="fas fa-building"></i> Analytics Solutions Inc.
+        </div>
+        <div class="experience-description">
+          Led data analysis initiatives for various clients across multiple industries, delivering actionable insights and data-driven solutions.
+        </div>
+        <ul class="experience-highlights">
+          <li>Developed and implemented predictive models that improved client decision-making accuracy by 35%</li>
+          <li>Created interactive dashboards and reports that reduced data processing time by 40%</li>
+          <li>Collaborated with cross-functional teams to design data collection processes and analytical frameworks</li>
+          <li>Mentored junior analysts and conducted training sessions on data visualization best practices</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="experience-title">GenAI Powered Data Analytics Virtual Experience</div>
+          <div class="experience-date">2023</div>
+        </div>
+        <div class="experience-company">
+          <i class="fas fa-building"></i> Tata iQ (Forage Simulation)
+        </div>
+        <div class="experience-description">
+          Completed a job simulation involving AI-powered data analytics and strategy development for the Financial Services team at Tata iQ.
+        </div>
+        <ul class="experience-highlights">
+          <li>Conducted exploratory data analysis (EDA) using GenAI tools to assess data quality, identify risk indicators, and structure insights for predictive modeling.</li>
+          <li>Proposed and justified an initial no-code predictive modeling framework to assess customer delinquency risk, leveraging GenAI for structured model logic and evaluation criteria.</li>
+          <li>Designed an AI-driven collections strategy leveraging agentic AI and automation, incorporating ethical AI principles, regulatory compliance, and scalable implementation frameworks.</li>
+        </ul>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="experience-title">Data Analytics Virtual Experience</div>
+          <div class="experience-date">2023</div>
+        </div>
+        <div class="experience-company">
+          <i class="fas fa-building"></i> Deloitte Australia (Forage Simulation)
+        </div>
+        <div class="experience-description">
+          Completed a Deloitte job simulation involving data analysis and forensic technology.
+        </div>
+        <ul class="experience-highlights">
+          <li>Created a data dashboard using Tableau to visualize key metrics and insights.</li>
+          <li>Used Excel to classify data and draw business conclusions based on analysis.</li>
+          <li>Applied forensic technology techniques to investigate data patterns and anomalies.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p>piyushbhajikhaye3@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h3>Phone</h3>
+              <p>+91 7385655477</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h3>Location</h3>
+              <p>Open to opportunities worldwide</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div>
+              <h3>Availability</h3>
+              <p>Open for freelance and full-time opportunities</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2023 Piyush Bhajikhaye. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/piyushbhajikhaye" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/piyushbhajikhaye" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/piyushbhajikhaye" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://medium.com/@piyushbhajikhaye" target="_blank"><i class="fab fa-medium"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks for your message! I\'ll get back to you soon.');
+      this.reset();
+    });
+    
+    // Simple navigation active state
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+    
+    window.addEventListener('scroll', function() {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
